@@ -1,0 +1,12 @@
+# idea
+.idea/
+cloud.iml
+
+# gradle
+.gradle/
+
+# build
+out/
+logs/
+build/
+upload/
