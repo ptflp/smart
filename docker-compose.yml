@@ -13,7 +13,7 @@ services:
     networks:
       - skynet
 
-  pesazlena:
+  portainer:
     image: portainer/portainer
     container_name: portainer
     restart: always
