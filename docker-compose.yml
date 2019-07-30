@@ -1,0 +1,31 @@
+version: "2"
+services:
+
+  proxy:
+    image: jwilder/nginx-proxy
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    container_name: proxy
+    restart: always
+    networks:
+      - skynet
+
+  pesazlena:
+    image: portainer/portainer
+    container_name: portainer
+    restart: always
+    networks:
+      - skynet
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    environment:
+      - VIRTUAL_HOST=portainer.ptflp.ru
+      - VIRTUAL_PORT=9000
+
+networks:
+  skynet:
+    external:
+      name: skynet
